@@ -23,7 +23,7 @@ function draw() {
 	background(200);
 	// Rota la figura en el eje Y
 	//rotateY(frameCount);
-	rotateY(gamma);
+	rotateY(alpha);
 	// Establece un material por defecto para el modelo
 	normalMaterial();
 	// Escala el modelo 3D
@@ -41,7 +41,7 @@ const handleOrientation = (event) => {
 	beta = event.beta;
 	gamma = event.gamma;
 
-	gamma = (alpha * Math.PI) / 180;
+	alpha = (alpha * Math.PI) / 180;
 	redraw();
 	console.log(
 		`Valor de alpha: ${alpha}, valor de beta: ${beta}, valor de gamma ${gamma}, valor de absolute: ${absolute}`
