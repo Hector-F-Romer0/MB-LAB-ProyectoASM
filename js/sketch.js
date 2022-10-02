@@ -1,9 +1,8 @@
 // Variable donde se almacena el modelo 3D
 let model3D;
 let alpha = 0;
-let beta;
+let beta = 2;
 let gamma = 0;
-let zoom = 2;
 let velocidadRotacion = 1;
 let textGamma;
 
@@ -19,6 +18,7 @@ function setup() {
 	// Determina que se van a utilizas los grados como unidad de medición
 	angleMode(RADIANS);
 	frameRate(2);
+	scale(2);
 	textGamma = document.getElementById("textGama");
 }
 // FUNCIÓN DE PINTADO
@@ -26,11 +26,11 @@ function draw() {
 	// Establece el color de fondo
 	background(200);
 	// Rota la figura en el eje Y
-	rotateY(frameCount + gamma);
+	rotateY(gamma);
 	// Establece un material por defecto para el modelo
 	normalMaterial();
 	// Escala el modelo 3D
-	scale(zoom);
+	scale(beta * 0.09);
 	// Rota el modelo 180 grados
 	rotateX(3.1416);
 	// Presenta el modelo
@@ -38,6 +38,10 @@ function draw() {
 }
 
 //* ------------ EXTERNO A P5 -----------------------
+const cambiarZoom = (factorEscalado) => {
+	scale(factorEscalado);
+};
+
 const handleOrientation = (event) => {
 	absolute = event.absolute;
 	alpha = event.alpha;
@@ -51,6 +55,7 @@ const handleOrientation = (event) => {
 	// 	`Valor de alpha: ${alpha}, valor de beta: ${beta}, valor de gamma ${gamma}, valor de absolute: ${absolute}`
 	// );
 	console.log(`Gamma en radianes: ${gamma}`);
+	console.log(`Beta: ${beta}`);
 	textGamma.innerText = gamma;
 };
 
