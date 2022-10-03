@@ -6,7 +6,6 @@
 .block {
 	display: block;
 }
-.container {
+.canvasContainer {
 	background-color: rgb(97, 199, 60);
-	width: 100%;
 }

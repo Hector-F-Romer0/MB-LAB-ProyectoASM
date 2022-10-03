@@ -1,10 +1,10 @@
 // Variable donde se almacena el modelo 3D
 let model3D;
 let alpha = 0;
-let beta = 2;
+let beta;
 let gamma = 0;
-let velocidadRotacion = 1;
-let textGamma;
+let velocidadRotacion = 0;
+let textGamma = document.getElementById("textGama");
 
 // FUNCIÓN DE PRECARGA
 function preload() {
@@ -13,28 +13,35 @@ function preload() {
 }
 // FUNCIÓN DE CONFIGURACIÓN
 function setup() {
-	// Cree un canvas con soporte para 3D de 500px x 500px
-	createCanvas(500, 500, WEBGL);
+	let contenedorCanvas = document.getElementById("canvasContainer");
+	let canvas = createCanvas(windowWidth, windowHeight, WEBGL).parent(contenedorCanvas);
 	// Determina que se van a utilizas los grados como unidad de medición
 	angleMode(RADIANS);
 	frameRate(2);
 	scale(2);
-	textGamma = document.getElementById("textGama");
+	beta = 75;
 }
 // FUNCIÓN DE PINTADO
 function draw() {
 	// Establece el color de fondo
 	background(200);
 	// Rota la figura en el eje Y
-	rotateY(gamma);
+
+	rotateY(velocidadRotacion + gamma * velocidadRotacion);
+	console.log(`Valor: ${velocidadRotacion + gamma * 2} - Añadadido: ${gamma * velocidadRotacion}`);
 	// Establece un material por defecto para el modelo
 	normalMaterial();
 	// Escala el modelo 3D
-	scale(beta * 0.09);
+	scale(beta * 0.04);
 	// Rota el modelo 180 grados
 	rotateX(3.1416);
 	// Presenta el modelo
 	model(model3D);
+	velocidadRotacion += 0.3;
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
 }
 
 //* ------------ EXTERNO A P5 -----------------------
