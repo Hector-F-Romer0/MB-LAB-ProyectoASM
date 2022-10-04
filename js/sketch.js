@@ -33,10 +33,8 @@ function draw() {
 	background(200);
 
 	// Rota la figura en el eje Y
-	if (gamma === 0) {
-		rotateY(velocidadRotacion);
-	} else if (gamma > 0) {
-		rotateY(velocidadRotacion + gamma);
+	if (gamma > 0) {
+		rotateY(velocidadRotacion + gamma * 1.5);
 	} else {
 		console.log("Velocidad decreciente", velocidadRotacion * gamma);
 		rotateY(velocidadRotacion + gamma / 2);

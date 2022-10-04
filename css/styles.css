@@ -48,22 +48,19 @@ ul {
 }
 
 .UIContainer {
-	width: 150px;
-	position: absolute;
-	top: 25%;
-	right: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #c8c8c8;
+	width: 100%;
+	/* position: absolute; */
+	bottom: 5%;
+	left: 4rem;
 }
 
 .buttonsGroup {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
 	gap: 10px;
-}
-
-.btnModelado1 {
-	width: 16%;
-	height: 60%;
-	position: absolute;
-	left: 10px;
-	top: 20%;
 }
