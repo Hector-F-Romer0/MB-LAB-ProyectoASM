@@ -1,17 +1,21 @@
 // Variable donde se almacena el modelo 3D
-let model3D;
+let modelo3DActual;
+let primerModelo3D;
+let segundoModelo3D;
 let alpha = 0;
 let beta;
 let gamma = 0;
-let velocidadRotacion = 0.4;
+let velocidadRotacion = 0.1;
 let textGamma = document.getElementById("textGama");
 let texturaPrimerModelado;
 
 // FUNCIÓN DE PRECARGA
 function preload() {
 	// Carga el modelo 3D, normalizado
-	model3D = loadModel("./sources/models/Primer modelado.obj", true);
+	primerModelo3D = loadModel("./sources/models/Primer modelado.obj", true);
+	segundoModelo3D = loadModel("./sources/models/SegundoModelado.obj", true);
 	texturaPrimerModelado = loadImage("./sources/models/Primero/untitled_tongue_albedo.png");
+	modelo3DActual = primerModelo3D;
 }
 // FUNCIÓN DE CONFIGURACIÓN
 function setup() {
@@ -31,13 +35,13 @@ function draw() {
 	// Rota la figura en el eje Y
 	if (gamma === 0) {
 		rotateY(velocidadRotacion);
-		velocidadRotacion += 0.3;
+		velocidadRotacion += 0.1;
 	} else if (gamma > 0) {
 		rotateY(velocidadRotacion + gamma);
-		velocidadRotacion += 0.3;
+		velocidadRotacion += 0.1;
 	} else {
-		rotateY(velocidadRotacion - gamma);
-		velocidadRotacion -= 0.3;
+		rotateY(velocidadRotacion - gamma * velocidadRotacion);
+		velocidadRotacion -= 0.1;
 	}
 	console.log(`Valor: ${velocidadRotacion + gamma * 0.5} - Añadadido: ${gamma * velocidadRotacion}`);
 
@@ -80,10 +84,10 @@ const cambiarModelado = (identificadorModelado) => {
 	console.log(`Modelado N°: ${identificadorModelado}`);
 	switch (identificadorModelado) {
 		case 1:
-			model3D = loadModel("./sources/models/Primer modelado.obj", true);
+			modelo3DActual = primerModelo3D;
 			break;
 		case 2:
-			model3D = loadModel("./sources/models/SegundoModelado.obj", true);
+			modelo3DActual = segundoModelo3D;
 			break;
 		case 3:
 			break;

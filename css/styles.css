@@ -47,11 +47,9 @@ ul {
 	margin-right: 10%;
 }
 
-.UIImagen {
-}
-
 .UIContainer {
-	width: 15%;
+	min-width: 15%;
+	max-width: 17%;
 	position: absolute;
 	top: 25%;
 	right: 4%;
