@@ -9,3 +9,54 @@
 .canvasContainer {
 	background-color: rgb(97, 199, 60);
 }
+
+.centerContainer {
+	background-color: #fafafa;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.info {
+	/* background-color: #e0f2f1; */
+	background-color: #80cbc4;
+	min-width: 400px;
+	max-width: 90%;
+	min-height: 700px;
+	border-radius: 7px;
+}
+
+.infoTitulo {
+	text-align: center;
+	margin-left: 4%;
+	margin-right: 10%;
+	font-size: 4rem;
+	font-weight: 500;
+}
+
+.infoContenido {
+	margin-left: 4%;
+	margin-right: 10%;
+}
+
+ul {
+	margin-left: 4%;
+	margin-right: 10%;
+}
+
+.UIImagen {
+}
+
+.UIContainer {
+	position: absolute;
+	bottom: 1%;
+}
+
+.btnModelado1 {
+	width: 16%;
+	height: 60%;
+	position: absolute;
+	left: 10px;
+	top: 20%;
+}

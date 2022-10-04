@@ -3,13 +3,15 @@ let model3D;
 let alpha = 0;
 let beta;
 let gamma = 0;
-let velocidadRotacion = 0;
+let velocidadRotacion = 1;
 let textGamma = document.getElementById("textGama");
+let texturaPrimerModelado;
 
 // FUNCIÓN DE PRECARGA
 function preload() {
 	// Carga el modelo 3D, normalizado
-	model3D = loadModel("./sources/Jaume.obj", true);
+	model3D = loadModel("./sources/models/Primer modelado.obj", true);
+	texturaPrimerModelado = loadImage("./sources/models/Primero/untitled_tongue_albedo.png");
 }
 // FUNCIÓN DE CONFIGURACIÓN
 function setup() {
@@ -25,19 +27,27 @@ function setup() {
 function draw() {
 	// Establece el color de fondo
 	background(200);
-	// Rota la figura en el eje Y
 
-	rotateY(velocidadRotacion + gamma * velocidadRotacion);
-	console.log(`Valor: ${velocidadRotacion + gamma * 2} - Añadadido: ${gamma * velocidadRotacion}`);
-	// Establece un material por defecto para el modelo
-	normalMaterial();
+	// Rota la figura en el eje Y
+	if (gamma === 0) {
+		rotateY(velocidadRotacion);
+		velocidadRotacion += 0.3;
+	} else if (gamma > 0) {
+		rotateY(velocidadRotacion + gamma);
+		velocidadRotacion += 0.3;
+	} else {
+		rotateY(velocidadRotacion - gamma);
+		velocidadRotacion -= 0.3;
+	}
+	console.log(`Valor: ${velocidadRotacion + gamma * 0.5} - Añadadido: ${gamma * velocidadRotacion}`);
+
+	texture(texturaPrimerModelado);
 	// Escala el modelo 3D
 	scale(beta * 0.04);
 	// Rota el modelo 180 grados
 	rotateX(3.1416);
 	// Presenta el modelo
 	model(model3D);
-	velocidadRotacion += 0.3;
 }
 
 function windowResized() {
