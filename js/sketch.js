@@ -40,7 +40,7 @@ function draw() {
 		rotateY(velocidadRotacion + gamma);
 		velocidadRotacion += 0.1;
 	} else {
-		rotateY(velocidadRotacion - gamma * velocidadRotacion);
+		rotateY(velocidadRotacion / (gamma * 2));
 		velocidadRotacion -= 0.1;
 	}
 	console.log(`Valor: ${velocidadRotacion + gamma * 0.5} - Añadadido: ${gamma * velocidadRotacion}`);
@@ -51,7 +51,7 @@ function draw() {
 	// Rota el modelo 180 grados
 	rotateX(3.1416);
 	// Presenta el modelo
-	model(model3D);
+	model(modelo3DActual);
 }
 
 function windowResized() {
