@@ -5,7 +5,7 @@ let segundoModelo3D;
 let alpha = 0;
 let beta;
 let gamma = 0;
-let velocidadRotacion = 0.1;
+let velocidadRotacion = 0.5;
 let textGamma = document.getElementById("textGama");
 let texturaPrimerModelado;
 
@@ -35,15 +35,13 @@ function draw() {
 	// Rota la figura en el eje Y
 	if (gamma === 0) {
 		rotateY(velocidadRotacion);
-		velocidadRotacion += 0.1;
 	} else if (gamma > 0) {
 		rotateY(velocidadRotacion + gamma);
-		velocidadRotacion += 0.1;
 	} else {
 		console.log("Velocidad decreciente", velocidadRotacion * gamma);
-		rotateY(velocidadRotacion / (velocidadRotacion + gamma));
-		velocidadRotacion -= 0.1;
+		rotateY(velocidadRotacion + gamma / 2);
 	}
+	velocidadRotacion += 0.1;
 	texture(texturaPrimerModelado);
 	// Escala el modelo 3D
 	scale(beta * 0.04);
