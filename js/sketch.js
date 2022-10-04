@@ -40,11 +40,10 @@ function draw() {
 		rotateY(velocidadRotacion + gamma);
 		velocidadRotacion += 0.1;
 	} else {
-		rotateY(velocidadRotacion / (gamma * 2));
+		console.log("Velocidad decreciente", velocidadRotacion * gamma);
+		rotateY(velocidadRotacion / (velocidadRotacion + gamma));
 		velocidadRotacion -= 0.1;
 	}
-	console.log(`Valor: ${velocidadRotacion + gamma * 0.5} - Añadadido: ${gamma * velocidadRotacion}`);
-
 	texture(texturaPrimerModelado);
 	// Escala el modelo 3D
 	scale(beta * 0.04);
@@ -69,14 +68,9 @@ const handleOrientation = (event) => {
 	beta = event.beta;
 	gamma = event.gamma;
 
-	console.log(`Gamma en bruto: ${gamma}`);
 	gamma = (gamma * Math.PI) / 180;
 	redraw();
-	// console.log(
-	// 	`Valor de alpha: ${alpha}, valor de beta: ${beta}, valor de gamma ${gamma}, valor de absolute: ${absolute}`
-	// );
-	console.log(`Gamma en radianes: ${gamma}`);
-	console.log(`Beta: ${beta}`);
+
 	textGamma.innerText = gamma;
 };
 

@@ -48,7 +48,7 @@ ul {
 }
 
 .UIContainer {
-	min-width: 15%;
+	width: 150px;
 	max-width: 17%;
 	position: absolute;
 	top: 25%;
