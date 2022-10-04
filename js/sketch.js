@@ -37,7 +37,7 @@ function draw() {
 		rotateY(velocidadRotacion + gamma * gamma);
 	} else {
 		console.log("Velocidad decreciente", velocidadRotacion * gamma);
-		rotateY((velocidadRotacion + gamma *-gamma);
+		rotateY(velocidadRotacion - gamma * gamma);
 	}
 	velocidadRotacion += 0.1;
 	normalMaterial();
