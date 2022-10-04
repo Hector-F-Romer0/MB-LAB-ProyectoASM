@@ -3,7 +3,7 @@ let model3D;
 let alpha = 0;
 let beta;
 let gamma = 0;
-let velocidadRotacion = 1;
+let velocidadRotacion = 0.4;
 let textGamma = document.getElementById("textGama");
 let texturaPrimerModelado;
 
@@ -74,6 +74,22 @@ const handleOrientation = (event) => {
 	console.log(`Gamma en radianes: ${gamma}`);
 	console.log(`Beta: ${beta}`);
 	textGamma.innerText = gamma;
+};
+
+const cambiarModelado = (identificadorModelado) => {
+	console.log(`Modelado N°: ${identificadorModelado}`);
+	switch (identificadorModelado) {
+		case 1:
+			model3D = loadModel("./sources/models/Primer modelado.obj", true);
+			break;
+		case 2:
+			model3D = loadModel("./sources/models/SegundoModelado.obj", true);
+			break;
+		case 3:
+			break;
+		default:
+			break;
+	}
 };
 
 window.addEventListener("deviceorientation", handleOrientation, true);

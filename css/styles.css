@@ -20,7 +20,9 @@
 
 .info {
 	/* background-color: #e0f2f1; */
-	background-color: #80cbc4;
+	/* background-color: #80cbc4; */
+	/* background-color: #c8c8c8; */
+	background-color: #ffffff;
 	min-width: 400px;
 	max-width: 90%;
 	min-height: 700px;
@@ -49,8 +51,16 @@ ul {
 }
 
 .UIContainer {
+	width: 15%;
 	position: absolute;
-	bottom: 1%;
+	top: 25%;
+	right: 4%;
+}
+
+.buttonsGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .btnModelado1 {
