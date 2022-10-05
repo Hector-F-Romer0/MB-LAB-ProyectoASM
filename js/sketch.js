@@ -1,8 +1,5 @@
 // Variable donde se almacena el modelo 3D
 let modelo3DActual;
-let primerModelo3D;
-let segundoModelo3D;
-let tercerModelado3D;
 let alpha = 0;
 let beta;
 let gamma = 0;
@@ -11,11 +8,7 @@ let textGamma = document.getElementById("textGama");
 
 // FUNCIÓN DE PRECARGA
 function preload() {
-	// Carga el modelo 3D, normalizado
-	primerModelo3D = loadModel("./sources/models/Primer modelado.obj", true);
-	segundoModelo3D = loadModel("./sources/models/SegundoModelado.obj", true);
-	tercerModelado3D = loadModel("./sources/models/TercerModelado.obj", true);
-	modelo3DActual = primerModelo3D;
+	modelo3DActual = loadModel("./sources/models/Primer Modelado.obj", true);
 }
 // FUNCIÓN DE CONFIGURACIÓN
 function setup() {
@@ -34,10 +27,10 @@ function draw() {
 
 	// Rota la figura en el eje Y
 	if (gamma > 0) {
-		rotateY(velocidadRotacion + gamma * gamma);
+		rotateY(velocidadRotacion + 2 * gamma);
 	} else {
-		console.log("Velocidad decreciente", velocidadRotacion * gamma);
-		rotateY(velocidadRotacion - gamma * gamma);
+		console.log("Velocidad decreciente", velocidadRotacion - velocidadRotacion * gamma);
+		rotateY(velocidadRotacion - velocidadRotacion * gamma);
 	}
 	velocidadRotacion += 0.1;
 	normalMaterial();
@@ -74,15 +67,22 @@ const cambiarModelado = (identificadorModelado) => {
 	console.log(`Modelado N°: ${identificadorModelado}`);
 	switch (identificadorModelado) {
 		case 1:
-			modelo3DActual = primerModelo3D;
+			modelo3DActual = loadModel("./sources/models/Primer Modelado.obj", true);
 			break;
 		case 2:
-			modelo3DActual = segundoModelo3D;
+			modelo3DActual = loadModel("./sources/models/Segundo Modelado.obj", true);
 			break;
 		case 3:
-			modelo3DActual = tercerModelado3D;
+			modelo3DActual = loadModel("./sources/models/Tercer Modelado.obj", true);
+			break;
+		case 4:
+			modelo3DActual = loadModel("./sources/models/Cuarto Modelado.obj", true);
+			break;
+		case 5:
+			modelo3DActual = loadModel("./sources/models/Quinto Modelado.obj", true);
 			break;
 		default:
+			modelo3DActual = loadModel("./sources/models/Primer Modelado.obj", true);
 			break;
 	}
 };
