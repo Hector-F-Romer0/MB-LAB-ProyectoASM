@@ -3,8 +3,7 @@ let modelo3DActual;
 let alpha = 0;
 let beta;
 let gamma = 0;
-let velocidadRotacion = 0.5;
-let textGamma = document.getElementById("textGama");
+let velocidadRotacion = 0.05;
 
 // FUNCIÓN DE PRECARGA
 function preload() {
@@ -22,23 +21,17 @@ function setup() {
 }
 // FUNCIÓN DE PINTADO
 function draw() {
-	// Establece el color de fondo
 	background(200);
-
-	// Rota la figura en el eje Y
 	if (gamma > 0) {
-		rotateY(velocidadRotacion + 2 * gamma);
+		rotateY(velocidadRotacion + Math.pow(gamma, 2));
 	} else {
-		console.log("Velocidad decreciente", velocidadRotacion - velocidadRotacion * gamma);
-		rotateY(velocidadRotacion - velocidadRotacion * gamma);
+		console.log(gamma);
+		rotateY(velocidadRotacion - velocidadRotacion * (gamma / -1.53334));
 	}
 	velocidadRotacion += 0.1;
 	normalMaterial();
-	// Escala el modelo 3D
 	scale(beta * 0.04);
-	// Rota el modelo 180 grados
 	rotateX(3.1416);
-	// Presenta el modelo
 	model(modelo3DActual);
 }
 
@@ -56,11 +49,8 @@ const handleOrientation = (event) => {
 	alpha = event.alpha;
 	beta = event.beta;
 	gamma = event.gamma;
-
 	gamma = (gamma * Math.PI) / 180;
 	redraw();
-
-	textGamma.innerText = gamma;
 };
 
 const cambiarModelado = (identificadorModelado) => {
