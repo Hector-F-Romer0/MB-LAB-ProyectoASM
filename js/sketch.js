@@ -32,8 +32,8 @@ function draw() {
 		if (factorDeRelentizacion > 0) {
 			factorDeRelentizacion -= 0.02;
 			velocidadRotacion += factorDeRelentizacion;
-			rotateY(velocidadRotacion);
 		}
+		rotateY(velocidadRotacion);
 	}
 	normalMaterial();
 	scale(beta * 0.04);
