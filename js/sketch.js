@@ -32,7 +32,7 @@ function draw() {
 		rotateY(velocidadRotacion);
 		if (factorDeRelentizacion <= 1) {
 			velocidadRotacion -= velocidadRotacion * factorDeRelentizacion;
-			factorDeRelentizacion += 0.1;
+			factorDeRelentizacion += 0.001;
 		}
 	}
 	normalMaterial();
