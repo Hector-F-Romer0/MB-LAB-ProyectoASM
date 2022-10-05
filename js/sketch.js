@@ -24,13 +24,14 @@ function setup() {
 function draw() {
 	background(200);
 	console.log(`Velocidad actual: ${velocidadRotacion}`);
-	if (gamma > 0) {
+	if (gamma >= 0) {
 		factorDeRelentizacion = 0;
-		rotateY(velocidadRotacion);
 		velocidadRotacion += 0.1 * gamma * 5;
+		rotateY(velocidadRotacion);
 	} else {
 		rotateY(velocidadRotacion);
-		velocidadRotacion += gamma / factorDeRelentizacion;
+		velocidadRotacion += 0.02;
+		//velocidadRotacion = velocidadRotacion + gamma / factorDeRelentizacion;
 		factorDeRelentizacion += 1;
 	}
 	normalMaterial();
