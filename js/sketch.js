@@ -4,6 +4,7 @@ let alpha = 0;
 let beta;
 let gamma = 0;
 let velocidadRotacion = 0.05;
+let factorDeRotacion = 0;
 
 // FUNCIÓN DE PRECARGA
 function preload() {
@@ -23,10 +24,13 @@ function setup() {
 function draw() {
 	background(200);
 	if (gamma > 0) {
-		rotateY(velocidadRotacion + Math.pow(gamma, 2));
+		factorDeRotacion = gamma * 10;
+		console.log("+ : ", factorDeRotacion);
+		rotateY(velocidadRotacion + factorDeRotacion);
 	} else {
-		console.log(gamma);
-		rotateY(velocidadRotacion - velocidadRotacion * (gamma / -1.53334));
+		factorDeRotacion = gamma * 10;
+		console.log("- : ", factorDeRotacion);
+		rotateY(velocidadRotacion - factorDeRotacion);
 	}
 	velocidadRotacion += 0.1;
 	normalMaterial();
