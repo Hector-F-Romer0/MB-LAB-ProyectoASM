@@ -31,7 +31,7 @@ function draw() {
 	} else {
 		if (factorDeRelentizacion > 0) {
 			factorDeRelentizacion -= 0.02;
-			velocidadRotacion += factorDeRelentizacion * gamma;
+			velocidadRotacion += factorDeRelentizacion;
 			rotateY(velocidadRotacion);
 		}
 	}
