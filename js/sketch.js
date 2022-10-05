@@ -24,15 +24,19 @@ function setup() {
 function draw() {
 	background(200);
 	if (gamma > 0) {
-		factorDeRotacion = gamma * 10;
+		factorDeRotacion = gamma * 5;
 		console.log("+ : ", factorDeRotacion);
 		rotateY(velocidadRotacion);
 		velocidadRotacion += 0.1 * factorDeRotacion;
 	} else {
-		factorDeRotacion = gamma * 10;
-		console.log("- : ", factorDeRotacion);
-		rotateY(velocidadRotacion);
-		velocidadRotacion -= 0.1 * factorDeRotacion;
+		if (velocidadRotacion > 0) {
+			factorDeRotacion = gamma * 5;
+			console.log("- : ", factorDeRotacion);
+			rotateY(velocidadRotacion);
+			velocidadRotacion -= 0.1 * factorDeRotacion;
+		} else {
+			velocidadRotacion = 0.01;
+		}
 	}
 
 	normalMaterial();
