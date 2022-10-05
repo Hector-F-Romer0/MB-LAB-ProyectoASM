@@ -25,7 +25,6 @@ function draw() {
 	background(200);
 	console.log(`Velocidad actual: ${velocidadRotacion}`);
 	if (gamma >= 0) {
-		factorDeRelentizacion = 1;
 		velocidadRotacion += 0.1 * gamma * 5;
 	} else {
 		factorDeRelentizacion = 0.02;
