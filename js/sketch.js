@@ -26,13 +26,15 @@ function draw() {
 	if (gamma > 0) {
 		factorDeRotacion = gamma * 10;
 		console.log("+ : ", factorDeRotacion);
-		rotateY(velocidadRotacion + factorDeRotacion);
+		rotateY(velocidadRotacion);
+		velocidadRotacion += 0.1 * factorDeRotacion;
 	} else {
 		factorDeRotacion = gamma * 10;
 		console.log("- : ", factorDeRotacion);
-		rotateY(velocidadRotacion + factorDeRotacion);
+		rotateY(velocidadRotacion);
+		velocidadRotacion -= 0.1 * factorDeRotacion;
 	}
-	velocidadRotacion += 0.1;
+
 	normalMaterial();
 	scale(beta * 0.04);
 	rotateX(3.1416);
