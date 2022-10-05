@@ -30,7 +30,7 @@ function draw() {
 	} else {
 		factorDeRotacion = gamma * 10;
 		console.log("- : ", factorDeRotacion);
-		rotateY(velocidadRotacion - factorDeRotacion);
+		rotateY(velocidadRotacion + factorDeRotacion);
 	}
 	velocidadRotacion += 0.1;
 	normalMaterial();
