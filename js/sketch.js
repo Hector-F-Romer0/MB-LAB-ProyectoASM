@@ -4,7 +4,7 @@ let alpha = 0;
 let beta;
 let gamma = 0;
 let velocidadRotacion = 0.05;
-let factorDeRotacion = 0;
+let factorDeRelentizacion = 0;
 
 // FUNCIÓN DE PRECARGA
 function preload() {
@@ -19,18 +19,21 @@ function setup() {
 	frameRate(2);
 	scale(2);
 	beta = 75;
-	factorDeRotacion = gamma * 5;
 }
 // FUNCIÓN DE PINTADO
 function draw() {
 	background(200);
 	console.log(`Velocidad actual: ${velocidadRotacion}`);
 	if (gamma > 0) {
+		factorDeRelentizacion = 0;
 		rotateY(velocidadRotacion);
-		velocidadRotacion += 0.1 * factorDeRotacion;
+		velocidadRotacion += 0.1 * gamma * 5;
 	} else {
-		rotateY(velocidadRotacion);
-		velocidadRotacion -= 1 * factorDeRotacion;
+		if (factorDeRelentizacion <= 1) {
+			rotateY(velocidadRotacion - velocidadRotacion * factorDeRelentizacion);
+			velocidadRotacion -= 1 * factorDeRotacion;
+			factorDeRelentizacion += 0.1;
+		}
 	}
 	normalMaterial();
 	scale(beta * 0.04);
