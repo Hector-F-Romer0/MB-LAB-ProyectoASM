@@ -19,26 +19,19 @@ function setup() {
 	frameRate(2);
 	scale(2);
 	beta = 75;
+	factorDeRotacion = gamma * 5;
 }
 // FUNCIÓN DE PINTADO
 function draw() {
 	background(200);
+	console.log(`Velocidad actual: ${velocidadRotacion}`);
 	if (gamma > 0) {
-		factorDeRotacion = gamma * 5;
-		console.log("+ : ", factorDeRotacion);
 		rotateY(velocidadRotacion);
 		velocidadRotacion += 0.1 * factorDeRotacion;
 	} else {
-		if (velocidadRotacion > 0) {
-			factorDeRotacion = gamma * 5;
-			console.log("- : ", factorDeRotacion);
-			rotateY(velocidadRotacion);
-			velocidadRotacion -= 0.1 * factorDeRotacion;
-		} else {
-			velocidadRotacion = 0.01;
-		}
+		rotateY(velocidadRotacion);
+		velocidadRotacion -= 1 * factorDeRotacion;
 	}
-
 	normalMaterial();
 	scale(beta * 0.04);
 	rotateX(3.1416);
